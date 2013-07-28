@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.public_header_files = 'Mocktail/Mocktail.h', 'Mocktail/MocktailResponse.h'
   s.framework  = 'Foundation'
   s.requires_arc = true
+  s.dependency 'GRMustache', '~> 6.7.5'
 end

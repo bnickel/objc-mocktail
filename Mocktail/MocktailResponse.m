@@ -10,6 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MocktailResponse.h"
+#import <GRMustache.h>
 
 NSString * const MocktailFileExtension = @"tail";
 
@@ -78,20 +79,14 @@ NSString * const MocktailFileExtension = @"tail";
 
     // Replace placeholders with values. We transform the body data into a string for easier search and replace.
     if ([values count] > 0) {
-        NSMutableString *bodyString = [[NSMutableString alloc] initWithData:body encoding:NSUTF8StringEncoding];
-        BOOL didReplace = NO;
-        for (NSString *placeholder in values) {
-            NSString *value = [values objectForKey:placeholder];
-            NSString *placeholderFormat = [NSString stringWithFormat:@"{{ %@ }}", placeholder];
-
-            if ([bodyString replaceOccurrencesOfString:placeholderFormat withString:value options:NSLiteralSearch range:NSMakeRange(0, [bodyString length])] > 0) {
-                didReplace = YES;
-            }
+        NSString *bodyString = [[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding];
+        NSError *error = nil;
+        NSString *renderedBodyString = [GRMustacheTemplate renderObject:values fromString:bodyString error:&error];
+        if (!renderedBodyString) {
+            NSLog(@"Render failed, error: %@", error);
+            return nil;
         }
-
-        if (didReplace) {
-            body = [bodyString dataUsingEncoding:NSUTF8StringEncoding];
-        }
+        body = [renderedBodyString dataUsingEncoding:NSUTF8StringEncoding];
     } else if ([self.headers[@"Content-Type"] hasSuffix:@";base64"]) {
         NSString *type = self.headers[@"Content-Type"];
         NSString *newType = [type substringWithRange:NSMakeRange(0, type.length - 7)];

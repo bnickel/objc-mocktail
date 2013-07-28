@@ -11,6 +11,7 @@
 		39F1B1F316EE98EF00D05B96 /* MocktailResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F1B1EF16EE98EF00D05B96 /* MocktailResponse.m */; };
 		39F1B1F416EE98EF00D05B96 /* MocktailURLProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 39F1B1F016EE98EF00D05B96 /* MocktailURLProtocol.h */; settings = {ATTRIBUTES = (); }; };
 		39F1B1F516EE98EF00D05B96 /* MocktailURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F1B1F116EE98EF00D05B96 /* MocktailURLProtocol.m */; };
+		8C24C55EB5374A3EA77B2443 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 462B958D44D642CBBA1BB979 /* libPods.a */; };
 		A822634216C45BC4007C81BC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A822634116C45BC4007C81BC /* Foundation.framework */; };
 		A822634916C45BC4007C81BC /* Mocktail.m in Sources */ = {isa = PBXBuildFile; fileRef = A822634816C45BC4007C81BC /* Mocktail.m */; };
 		A822635016C45D9E007C81BC /* Mocktail.h in Headers */ = {isa = PBXBuildFile; fileRef = A822634616C45BC4007C81BC /* Mocktail.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -22,6 +23,8 @@
 		39F1B1EF16EE98EF00D05B96 /* MocktailResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MocktailResponse.m; sourceTree = "<group>"; };
 		39F1B1F016EE98EF00D05B96 /* MocktailURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MocktailURLProtocol.h; sourceTree = "<group>"; };
 		39F1B1F116EE98EF00D05B96 /* MocktailURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MocktailURLProtocol.m; sourceTree = "<group>"; };
+		3C2B6A0910714C10BFD7DC4E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		462B958D44D642CBBA1BB979 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A822633E16C45BC4007C81BC /* libMocktail.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMocktail.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A822634116C45BC4007C81BC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A822634516C45BC4007C81BC /* Mocktail-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mocktail-Prefix.pch"; sourceTree = "<group>"; };
@@ -36,6 +39,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A822634216C45BC4007C81BC /* Foundation.framework in Frameworks */,
+				8C24C55EB5374A3EA77B2443 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +52,7 @@
 				A822634316C45BC4007C81BC /* Mocktail */,
 				A822634016C45BC4007C81BC /* Frameworks */,
 				A822633F16C45BC4007C81BC /* Products */,
+				3C2B6A0910714C10BFD7DC4E /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				A822634116C45BC4007C81BC /* Foundation.framework */,
+				462B958D44D642CBBA1BB979 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -128,9 +134,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A822634C16C45BC4007C81BC /* Build configuration list for PBXNativeTarget "Mocktail" */;
 			buildPhases = (
+				D642B01B4275474BA92CF786 /* Check Pods Manifest.lock */,
 				A822634F16C45D98007C81BC /* Headers */,
 				A822633A16C45BC4007C81BC /* Sources */,
 				A822633B16C45BC4007C81BC /* Frameworks */,
+				2F7D0D6D403346CD8C39C857 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,6 +175,39 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2F7D0D6D403346CD8C39C857 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D642B01B4275474BA92CF786 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A822633A16C45BC4007C81BC /* Sources */ = {
@@ -239,11 +280,11 @@
 		};
 		A822634D16C45BC4007C81BC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C2B6A0910714C10BFD7DC4E /* Pods.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/Mocktail.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mocktail/Mocktail-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -251,11 +292,11 @@
 		};
 		A822634E16C45BC4007C81BC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C2B6A0910714C10BFD7DC4E /* Pods.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/Mocktail.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mocktail/Mocktail-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
