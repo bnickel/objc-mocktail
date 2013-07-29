@@ -19,6 +19,8 @@ FOUNDATION_EXPORT NSString * const MocktailFileExtension;
 @property (nonatomic, readonly) NSDictionary *headers;
 @property (nonatomic, readonly) NSInteger statusCode;
 @property (nonatomic, readonly) NSData *body;
+
 - (NSData *)bodyWithValues:(NSDictionary *)values;
+- (NSDictionary *)headersWithValues:(NSDictionary *)values;
 
 @end
